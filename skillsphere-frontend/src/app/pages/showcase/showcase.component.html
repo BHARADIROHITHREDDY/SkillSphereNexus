@@ -1,0 +1,5 @@
+<div class="reference-app" *ngIf="screens[active] as screen">
+  <header><strong>SkillSphere Nexus</strong><span>{{ screen.milestone }}</span><small>HR Manager | Logout</small></header>
+  <aside><button *ngFor="let item of nav" (click)="select(item[1])" [class.selected]="screen.active === item[0]">{{ item[0] }}</button></aside>
+  <main><h1>{{ screen.title }}</h1><section class="cards"><article *ngFor="let card of screen.cards"><span>{{ card[0] }}</span><strong>{{ card[1] }}</strong><small>{{ card[2] }}</small></article></section><section class="service"><h2>{{ screen.service }}</h2><p *ngFor="let line of screen.lines" [class.alert]="line.startsWith('Certifications:') || line.startsWith('Certification: Java')">{{ line }}</p><p class="actions">Action: {{ screen.actions }}</p></section></main>
+</div>

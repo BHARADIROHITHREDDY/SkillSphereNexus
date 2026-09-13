@@ -1,0 +1,66 @@
+<section class="page">
+
+  <p class="eyebrow">SKILLSPHERE NEXUS</p>
+
+  <div class="page-header">
+    <div>
+      <h1>{{ view.title }}</h1>
+      <p>{{ view.subtitle }}</p>
+    </div>
+
+    <!-- Skills page -->
+    <button
+      *ngIf="screen === 'skills'"
+      class="primary-button"
+      (click)="startAssessment()">
+      Start assessment
+    </button>
+
+    <!-- Other pages -->
+    <button
+      *ngIf="screen !== 'skills'"
+      class="primary-button">
+      {{ view.action }}
+    </button>
+  </div>
+
+  <div class="table-card">
+
+    <table>
+
+      <thead>
+      <tr>
+        <th *ngFor="let header of view.headers">
+          {{ header }}
+        </th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let row of view.rows">
+
+        <td *ngFor="let cell of row">
+          {{ cell }}
+        </td>
+
+      </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <!-- Competency gap - Skills page only -->
+  <div
+    class="competency-gap"
+    *ngIf="screen === 'skills'">
+
+    <h2>Competency gap</h2>
+
+    <p>
+      Angular +3 · Leadership +2
+    </p>
+
+  </div>
+
+</section>

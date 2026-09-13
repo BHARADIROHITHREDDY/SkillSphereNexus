@@ -1,0 +1,19 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        # The present codebase packages M1–M4 in one backend on 8080. These routes
+        # keep the final public API stable while services can be split later.
+        - id: skillsphere-backend
+          uri: http://localhost:8080
+          predicates:
+            - Path=/api/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
